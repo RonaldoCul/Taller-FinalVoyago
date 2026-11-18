@@ -1,11 +1,4 @@
-/* ==========================================================================
-   VoyaGo · Favoritos (funcional)
-   Se guardan en el navegador (localStorage). Conecta:
-   - Los corazones ♡ de las tarjetas (portada y Explorar)
-   - El corazón y "Guardar en favoritos" de la página de destino
-   - La página Favoritos (se dibuja con lo guardado, mismo diseño de siempre)
-   La primera vez, se cargan los 6 favoritos que ya mostraba la página.
-   ========================================================================== */
+
 (function () {
   'use strict';
 
@@ -20,8 +13,7 @@
   const $ = (s, r) => (r || document).querySelector(s);
   const $$ = (s, r) => Array.from((r || document).querySelectorAll(s));
 
-  /* ---------- Almacenamiento ---------- */
-
+  
   function leer() {
     try {
       const v = JSON.parse(localStorage.getItem(CLAVE));
@@ -33,7 +25,7 @@
     try { localStorage.setItem(CLAVE, JSON.stringify(lista)); } catch (e) { /* sin espacio */ }
   }
 
-  // Primera visita: los favoritos que ya traía la página
+  
   (function sembrar() {
     if (leer()) return;
     const base0 = [
@@ -80,7 +72,7 @@
     return new URL('../images/' + encodeURI(img), base).href;
   }
 
-  // "…/images/Tokio.png" → "Tokio.png"
+  
   function archivoDe(src) {
     if (!src) return '';
     if (/^https?:\/\//.test(src) && src.indexOf('/images/') < 0) return src;
@@ -94,7 +86,7 @@
       : { lugar: f.nombre, pais: f.pais })
     : '#';
 
-  /* ---------- Corazones de las tarjetas (portada / explorar) ---------- */
+  
 
   $$('.tarjeta').forEach((t) => {
     const btn = $('.tarjeta__favorito', t);
@@ -125,7 +117,7 @@
     });
   });
 
-  /* ---------- Página Favoritos ---------- */
+  
 
   const grid = $('.fv-grid');
   if (grid) {
@@ -139,7 +131,7 @@
       '<a href="explorar.html" class="ds-plan__btn">Explorar destinos</a>';
     grid.after(vacio);
 
-    const memoria = {}; // para poder volver a marcar un corazón sin recargar
+    const memoria = {}; 
 
     const cuenta = (el, n) => {
       if (!el) return;
