@@ -2642,7 +2642,6 @@ a.btn-guardar-plan {
 .vg-sug__vacio { cursor: default !important; color: var(--texto-secundario); font-size: 0.8rem !important; }
 .vg-clic { cursor: pointer; }
 
-/* Evita ver Bali un instante cuando se abre otro destino */
 .vg-carga .ds-migas,
 .vg-carga .ds-top,
 .vg-carga .ds-desc,
@@ -2777,7 +2776,7 @@ a.btn-guardar-plan {
 
 img { max-width: 100%; }
 
-/* ---------- Tablet ---------- */
+
 @media (max-width: 1024px) {
   /* Header: logo + buscador arriba, menú en una segunda fila */
   header {
@@ -2797,23 +2796,23 @@ img { max-width: 100%; }
   header nav ul { gap: 22px; white-space: nowrap; }
   .header__buscador { width: 100%; min-width: 0; flex: 1; }
 
-  /* Inicio */
+ 
   .portada h1 { font-size: 3rem; }
   .portada__frase { display: none; }
   .ventajas { grid-template-columns: repeat(2, 1fr); }
   .destinos__tarjetas { grid-template-columns: repeat(3, 1fr); }
   .banner__frase { display: none; }
 
-  /* Explorar */
+  
   .explorar { grid-template-columns: 1fr; }
   .resultados__tarjetas { grid-template-columns: repeat(3, 1fr); }
   .explorar-portada__frase { display: none; }
 
-  /* Planificar */
+  
   .planificador-layout { grid-template-columns: minmax(0, 1fr); padding: 24px 4%; }
   .planificador-layout > * { min-width: 0; }
 
-  /* Footer */
+  
   .pie__contenido { grid-template-columns: repeat(3, 1fr); }
   .pie__frase, .pie__cierre { display: none; }
 }
