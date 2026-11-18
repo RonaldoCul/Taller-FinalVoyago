@@ -1,8 +1,4 @@
-/* ==========================================================================
-   VoyaGo · Reserva: precios en tu moneda
-   Los precios de la página están en dólares (USD). Aquí se agrega un selector
-   y se convierten el detalle y el total con el tipo de cambio actual.
-   ========================================================================== */
+
 (function () {
   'use strict';
 
