@@ -1,8 +1,4 @@
-/* ==========================================================================
-   VoyaGo · Página de destino
-   Lee ?lugar=... (o ?q=...) y muestra: mapa, clima, moneda, datos del país,
-   lugares cercanos y fotos. Si no hay parámetros, se ve Bali como siempre.
-   ========================================================================== */
+
 (function () {
   'use strict';
 
@@ -42,7 +38,7 @@
   let datosPais = null;   // respuesta REST Countries
   let unidad = 'C';
 
-  /* ---------- Helpers ---------- */
+  
 
   const fmt = (n, dec) => Number(n).toLocaleString('es-CO', { maximumFractionDigits: dec == null ? 0 : dec });
   const fmtTasa = (n) => fmt(n, n >= 1000 ? 0 : n >= 1 ? 2 : 4);
@@ -85,7 +81,7 @@
 
   const cssUrl = (u) => "url('" + encodeURI(u).replace(/'/g, '%27').replace(/\(/g, '%28').replace(/\)/g, '%29') + "')";
 
-  /* ---------- Encabezado / hero ---------- */
+  
 
   function aplicarHero(l, esBali) {
     document.title = l.nombre + ' | VoyaGO';
@@ -166,7 +162,7 @@
     }
   }
 
-  /* ---------- Mapa (Leaflet) ---------- */
+  
 
   let mapa = null, capaCercanos = [];
 
@@ -239,7 +235,7 @@
     };
   }
 
-  /* ---------- Clima ---------- */
+  
 
   function pintarClima() {
     const d = datosClima, c = d.current, dia = d.daily;
@@ -287,7 +283,7 @@
     }
   }
 
-  /* ---------- Moneda ---------- */
+  
 
   let tasasData = null;
   let monedaDestino = null;
@@ -381,7 +377,7 @@
     }
   }
 
-  /* ---------- Datos prácticos ---------- */
+  
 
   function pintarDatos() {
     const grid = $('#ds-datos-grid');
@@ -429,7 +425,7 @@
     $('.ds-iconos').innerHTML = items.map((i) => '<li><i class="' + i[0] + '"></i><span>' + esc(i[1]) + '</span></li>').join('');
   }
 
-  /* ---------- Wikipedia (descripción + fotos) ---------- */
+  
 
   async function cargarWiki() {
     const cat = lugar.catalogo;
@@ -457,7 +453,7 @@
       }
     }
 
-    // Fotos: propias (catálogo) + Wikipedia + Commons
+    
     const fotos = cat ? cat.imagenes.map((f) => '../images/' + f) : [];
     if (fotos.length < 5) {
       let remotas = [];
@@ -477,7 +473,7 @@
     ponerGaleria(fotos.slice(0, 12), lugar.nombre);
   }
 
-  /* ---------- Pestañas, enlaces, reloj ---------- */
+  
 
   function conectarPestanas() {
     const mapaTabs = { 'qué hacer': '#ds-cercanos', 'cómo llegar': '#ds-mapa-sec', consejos: '#ds-practico' };
@@ -523,7 +519,7 @@
     });
   }
 
-  /* ---------- Favoritos ---------- */
+  
 
   let fotoFav = '';
 
@@ -550,7 +546,7 @@
     window.__vgFavActualizar = () => { if (F.tiene(id)) F.actualizar(id, item()); };
   }
 
-  /* ---------- Inicio ---------- */
+  
 
   async function iniciar() {
     const pedido = {
