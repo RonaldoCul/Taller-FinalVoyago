@@ -1452,7 +1452,7 @@ button, input, select {
 .mp-viaje--proximo .mp-etiqueta { background: #E3F7F6; color: #078F98; }
 .mp-viaje--proximo img { height: 124px; }
 
-/* ---------- Columna derecha ---------- */
+
 .mp-caja { padding: 18px; margin-bottom: 20px; }
 .mp-caja__titulo { font-size: 1rem; margin-bottom: 14px; }
 .mp-stats { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
@@ -2621,11 +2621,7 @@ a.btn-guardar-plan {
   pointer-events: none;
 }
 
-/* ==========================================================================
-   VoyaGo · APIs (mapa, clima, moneda, buscador)  — estilos añadidos
-   ========================================================================== */
 
-/* Sugerencias del buscador */
 .vg-sug {
   position: absolute;
   z-index: 3000;
@@ -2652,7 +2648,7 @@ a.btn-guardar-plan {
 .vg-carga .ds-desc,
 .vg-carga .ds-galeria { visibility: hidden; }
 
-/* Sección de información */
+
 .ds-api { padding: 28px 0 8px; border-bottom: 1px solid var(--borde); margin-bottom: 18px; }
 .ds-api__nota { font-size: 0.78rem; color: var(--texto-secundario); }
 .ds-api__nota i { color: var(--primario); margin-right: 4px; }
@@ -2664,7 +2660,7 @@ a.btn-guardar-plan {
 .ds-api__cab h3 { font-size: 1.05rem; display: flex; align-items: center; gap: 8px; }
 .ds-api__cab h3 i { color: var(--primario); }
 
-/* Mapa */
+
 .ds-mapa { height: 380px; border-radius: 8px; overflow: hidden; background: #EEF2F6; z-index: 0; }
 .ds-mapa iframe { width: 100%; height: 100%; border: 0; }
 .ds-mapa__enlaces { display: flex; gap: 14px; font-size: 0.8rem; }
@@ -2675,7 +2671,7 @@ a.btn-guardar-plan {
 .vg-pin i { font-size: 34px; color: var(--acento); filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.35)); }
 .leaflet-container { font-family: inherit; }
 
-/* Lugares cercanos */
+
 .ds-cercanos__lista { list-style: none; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
 .ds-cercanos__lista button { width: 100%; display: flex; align-items: center; gap: 8px; padding: 9px 10px; border: 1px solid var(--borde); border-radius: 8px; background: var(--fondo); color: var(--texto); font-size: 0.82rem; text-align: left; cursor: pointer; }
 .ds-cercanos__lista button:hover { border-color: var(--primario); }
@@ -2684,7 +2680,7 @@ a.btn-guardar-plan {
 .ds-cercanos__lista small { color: var(--texto-secundario); font-size: 0.72rem; }
 .ds-cercanos__vacio { grid-column: 1 / -1; font-size: 0.85rem; color: var(--texto-secundario); }
 
-/* Clima */
+
 .ds-unidad { display: inline-flex; border: 1px solid var(--borde); border-radius: 999px; overflow: hidden; }
 .ds-unidad button { border: none; background: transparent; padding: 4px 12px; font-size: 0.78rem; cursor: pointer; color: var(--texto-secundario); }
 .ds-unidad button.activa { background: var(--texto); color: #fff; }
@@ -2708,7 +2704,7 @@ a.btn-guardar-plan {
 .ds-clima__dias i { color: var(--primario); font-size: 1.1rem; }
 .ds-clima__dias small { color: var(--texto-secundario); }
 
-/* Moneda */
+
 .ds-moneda__info { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
 .ds-moneda__codigo { padding: 10px 12px; border-radius: 8px; background: var(--texto); color: #fff; font-weight: 700; letter-spacing: 1px; }
 .ds-moneda__info > div { display: flex; flex-direction: column; }
@@ -2726,7 +2722,7 @@ a.btn-guardar-plan {
 .ds-conv__igual { padding-bottom: 12px; color: var(--texto-secundario); }
 .ds-moneda__fuente { font-size: 0.72rem; color: var(--texto-secundario); }
 
-/* Datos prácticos */
+
 .ds-datos__grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
 .ds-dato { display: flex; align-items: flex-start; gap: 12px; padding: 12px; background: var(--fondo); border-radius: 8px; }
 .ds-dato > i { color: var(--primario); font-size: 1.1rem; width: 22px; text-align: center; margin-top: 2px; }
@@ -2736,7 +2732,7 @@ a.btn-guardar-plan {
 .ds-desc__fuente { display: inline-block; margin-top: 8px; font-size: 0.78rem; color: var(--texto-secundario); }
 .ds-desc__fuente:hover { color: var(--primario); }
 
-/* Estados */
+
 .vg-cargando { padding: 22px 0; color: var(--texto-secundario); font-size: 0.88rem; animation: vg-pulso 1.2s ease-in-out infinite; }
 @keyframes vg-pulso { 50% { opacity: 0.45; } }
 .vg-error { display: flex; flex-direction: column; align-items: center; gap: 8px; padding: 16px 0; text-align: center; font-size: 0.88rem; color: var(--texto-secundario); }
@@ -2761,9 +2757,7 @@ a.btn-guardar-plan {
   .ds-clima__dias { grid-template-columns: repeat(4, 1fr); }
 }
 
-/* ==========================================================================
-   VoyaGo · Favoritos y reserva — estilos añadidos
-   ========================================================================== */
+
 .tarjeta__favorito { transition: transform 0.15s ease, background 0.15s ease, color 0.15s ease; }
 .tarjeta__favorito:hover { transform: scale(1.1); }
 .tarjeta__favorito.activo { background: var(--acento); color: #fff; }
@@ -2779,9 +2773,7 @@ a.btn-guardar-plan {
 .rv-moneda small { flex-basis: 100%; color: var(--texto-secundario); font-size: 0.72rem; }
 
 
-/* ==========================================================================
-   VoyaGo · Versión móvil y tablet (responsive)
-   ========================================================================== */
+
 
 img { max-width: 100%; }
 
@@ -2826,30 +2818,30 @@ img { max-width: 100%; }
   .pie__frase, .pie__cierre { display: none; }
 }
 
-/* Perfil: la columna única no debe estirarse por el contenido */
+
 @media (max-width: 800px) {
   .mp { grid-template-columns: minmax(0, 1fr); }
   .mp > *, .mp-centro > * { min-width: 0; }
   .mp-menu nav { max-width: 100%; }
 }
 
-/* Destino e Inspiración: columnas únicas que no se estiren por el contenido */
+
 @media (max-width: 1100px) {
   .ds-top, .ds-info, .ds-api__grid, .in-layout { grid-template-columns: minmax(0, 1fr); }
   .ds-top > *, .ds-info > *, .ds-api__grid > *, .in-layout > * { min-width: 0; }
 }
 
-/* ---------- Celular ---------- */
+
 @media (max-width: 700px) {
   .logo { height: 36px; }
   header nav ul { gap: 14px; font-size: 0.85rem; }
 
-  /* Inicio: portada */
+  
   .portada { padding: 44px 5% 36px; min-height: 0; }
   .portada h1 { font-size: 2.4rem; }
   .portada .descripcion { max-width: 100%; font-size: 0.95rem; }
 
-  /* Buscador de la portada: campos apilados */
+  
   .buscador {
     flex-direction: column;
     align-items: stretch;
@@ -2862,7 +2854,7 @@ img { max-width: 100%; }
   .campo input, .campo select { font-size: 1rem; } /* evita el zoom automático en iPhone */
   .btn-buscar { width: 100%; padding: 14px; margin-top: 4px; }
 
-  /* Ventajas, destinos, banner */
+  
   .ventajas { grid-template-columns: 1fr; gap: 16px; padding: 22px 5%; }
   .destinos { padding: 32px 5%; }
   .destinos__encabezado { flex-direction: column; align-items: flex-start; gap: 10px; }
@@ -2873,7 +2865,7 @@ img { max-width: 100%; }
   .banner { padding: 44px 5%; }
   .banner h2 { font-size: 1.7rem; }
 
-  /* Explorar */
+  
   .explorar-portada { padding: 28px 5%; min-height: 0; }
   .explorar-portada h1 { font-size: 2.2rem; }
   .explorar-portada .descripcion { max-width: 100%; }
@@ -2881,20 +2873,20 @@ img { max-width: 100%; }
   .resultados__encabezado { flex-direction: column; align-items: flex-start; gap: 10px; }
   .resultados__tarjetas { grid-template-columns: repeat(2, 1fr); gap: 12px; }
 
-  /* Planificar */
+ 
   .itinerario__encabezado { flex-wrap: wrap; gap: 8px; }
   .detalle-input select { max-width: 100%; }
 
-  /* Footer */
+  
   .pie { padding: 32px 5% 14px; }
   .pie__contenido { grid-template-columns: 1fr 1fr; }
   .pie__marca { grid-column: 1 / -1; }
   .pie__legal { flex-direction: column; gap: 6px; text-align: center; }
 
-  /* Sugerencias del buscador: que no se salgan de la pantalla */
+  
   .vg-sug { max-width: calc(100vw - 24px); }
 
-  /* Destino */
+  
   .ds { padding: 10px 4% 28px; }
   .ds-migas { flex-wrap: wrap; row-gap: 4px; font-size: 0.85rem; }
   .ds-hero { min-height: 340px; }
@@ -2919,7 +2911,7 @@ img { max-width: 100%; }
   .ds-clima__dias { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 }
 
-/* ---------- Celulares pequeños ---------- */
+
 @media (max-width: 420px) {
   .portada h1 { font-size: 2rem; }
   .destinos__tarjetas, .resultados__tarjetas { grid-template-columns: 1fr; }
