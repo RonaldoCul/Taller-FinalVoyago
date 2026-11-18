@@ -1,10 +1,4 @@
-/* ==========================================================================
-   VoyaGo · Buscador global
-   - Conecta los buscadores que ya existen (header, portada, explorar)
-   - Muestra sugerencias de cualquier lugar del mundo
-   - Hace que las tarjetas de destino lleven a destino.html?lugar=...
-   No modifica el diseño: solo agrega comportamiento.
-   ========================================================================== */
+
 (function () {
   'use strict';
 
@@ -115,8 +109,7 @@
     });
   }
 
-  /* ---------- Conectar los buscadores existentes ---------- */
-
+  
   document.querySelectorAll('.header__buscador, .filtros__buscador input').forEach(adjuntar);
 
   const formPortada = document.querySelector('form.buscador');
@@ -130,14 +123,14 @@
     });
   }
 
-  /* ---------- Tarjetas → página de destino ---------- */
+  
 
   function partir(texto) {
     const p = texto.split(',').map((s) => s.trim());
     return { lugar: p[0], pais: p.slice(1).join(', ') };
   }
 
-  // Tarjetas de portada y explorar
+  
   document.querySelectorAll('.tarjeta').forEach((t) => {
     const h3 = t.querySelector('h3');
     if (!h3) return;
@@ -158,20 +151,20 @@
     });
   });
 
-  // Favoritos
+  
   document.querySelectorAll('.fv-card h3 a').forEach((a) => {
     if (a.getAttribute('href') && a.getAttribute('href') !== '#') return;
     a.href = urlDestino(partir(a.textContent));
   });
 
-  // Destinos relacionados
+  
   document.querySelectorAll('a.ds-rel').forEach((a) => {
     if (a.getAttribute('href') && a.getAttribute('href') !== '#') return;
     const n = a.querySelector('h3'), p = a.querySelector('p');
     if (n) a.href = urlDestino({ lugar: n.textContent.trim(), pais: p ? p.textContent.trim() : '' });
   });
 
-  /* ---------- Planificar: destino precargado desde la URL ---------- */
+  
 
   const params = new URLSearchParams(location.search);
   const destinoPlan = document.querySelector('.detalles-viaje input[type="text"]');
