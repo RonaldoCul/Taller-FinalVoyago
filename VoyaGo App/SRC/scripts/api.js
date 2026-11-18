@@ -1,19 +1,8 @@
-/* ==========================================================================
-   VoyaGo · Capa de APIs
-   Todas son GRATUITAS y NO necesitan clave (API key):
 
-   · Lugares / geocodificación  → Open-Meteo Geocoding  (respaldo: Nominatim/OSM)
-   · Clima                      → Open-Meteo Forecast
-   · Datos del país + moneda    → REST Countries
-   · Tipo de cambio             → open.er-api.com (respaldos: currency-api, Frankfurter)
-   · Descripción y fotos        → Wikipedia / Wikimedia Commons
-   · Lugares cercanos           → Wikipedia GeoSearch
-   · Mapa                       → Leaflet + OpenStreetMap/CARTO/Esri (en destino.js)
-   ========================================================================== */
 (function (global) {
   'use strict';
 
-  /* ---------- Utilidades ---------- */
+  
 
   const norm = (s) =>
     (s || '').toString().normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().trim();
@@ -27,7 +16,7 @@
   const HORA = 60 * MIN;
   const DIA = 24 * HORA;
 
-  /* Caché en localStorage para no repetir llamadas (más rápido y respeta límites de las APIs) */
+  
   const cache = {
     get(clave, ttl) {
       try {
@@ -62,7 +51,7 @@
     return 2 * R * Math.asin(Math.sqrt(a));
   }
 
-  /* ---------- Catálogo propio (los destinos que ya existen en la web) ---------- */
+  
 
   const CATALOGO = [
     {
@@ -142,7 +131,7 @@
     ) || null;
   }
 
-  /* ---------- Lugares (geocodificación) ---------- */
+  
 
   function zoomPorTipo(t) {
     t = String(t || '').toUpperCase();
@@ -198,7 +187,7 @@
     });
   }
 
-  /* Sugerencias para el buscador: primero tu catálogo, luego el mundo entero */
+  
   async function buscarLugares(texto, max) {
     const q = (texto || '').trim();
     if (q.length < 2) return [];
@@ -234,7 +223,7 @@
     return salida.slice(0, limite);
   }
 
-  /* Convierte lo que llegó por la URL (?lugar=..&lat=..) en un lugar completo */
+  
   async function resolverLugar(p) {
     p = p || {};
     const texto = (p.lugar || p.q || '').trim();
@@ -268,7 +257,7 @@
     return null;
   }
 
-  /* ---------- Clima (Open-Meteo) ---------- */
+  
 
   async function clima(lat, lon) {
     const clave = 'clima:' + lat.toFixed(2) + ',' + lon.toFixed(2);
@@ -284,7 +273,7 @@
     return d;
   }
 
-  /* Códigos WMO → texto en español + icono de Font Awesome */
+  
   function descripcionClima(codigo, esDia) {
     const dia = esDia !== 0 && esDia !== false;
     const t = (texto, iconoDia, iconoNoche) => ({ texto, icono: dia ? iconoDia : (iconoNoche || iconoDia) });
@@ -314,9 +303,9 @@
     return p[Math.round((((grados % 360) + 360) % 360) / 45) % 8];
   }
 
-  /* ---------- País + moneda (REST Countries) ---------- */
+  
 
-  /* Respaldo mínimo por si REST Countries no responde */
+  
   const MONEDA_POR_PAIS = {
     CO: 'COP', US: 'USD', MX: 'MXN', AR: 'ARS', BR: 'BRL', CL: 'CLP', PE: 'PEN', UY: 'UYU', PY: 'PYG',
     BO: 'BOB', EC: 'USD', VE: 'VES', PA: 'PAB', CR: 'CRC', GT: 'GTQ', HN: 'HNL', NI: 'NIO', SV: 'USD',
@@ -366,7 +355,7 @@
     }
   }
 
-  /* ---------- Tipo de cambio ---------- */
+  
 
   async function tasas() {
     const guardado = cache.get('tasas', 60 * MIN);
@@ -408,7 +397,7 @@
     return (monto / rDe) * rA;
   }
 
-  /* ---------- Wikipedia / Commons ---------- */
+  
 
   async function wikiResumenPorTitulo(titulo) {
     return getJSON('https://es.wikipedia.org/api/rest_v1/page/summary/' +
@@ -423,7 +412,7 @@
     return (d && d[1]) || [];
   }
 
-  /* Devuelve el artículo de Wikipedia del lugar (verificando que esté cerca de las coordenadas) */
+  
   async function wikiResumen(lugar) {
     const clave = 'wiki:' + norm(lugar.nombre) + '|' + lugar.cc + '|' + Math.round(lugar.lat) + '|' + Math.round(lugar.lon);
     const guardado = cache.get(clave, DIA);
@@ -480,7 +469,7 @@
     }
   }
 
-  /* Fotos reales tomadas cerca de las coordenadas (Wikimedia Commons) */
+  
   async function fotosCerca(lat, lon, max) {
     try {
       const d = await getJSON(
@@ -519,7 +508,7 @@
     }
   }
 
-  /* ---------- Exportar ---------- */
+  
 
   global.VoyaGoAPI = {
     CATALOGO, norm, esc, cache, distanciaKm,
